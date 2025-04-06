@@ -30,15 +30,22 @@ export default function Contact() {
     setIsSubmitting(true);
 
     try {
-      // Replace with your actual form submission logic
-      await new Promise((resolve) => setTimeout(resolve, 1500));
+      const response = await fetch("https://formspree.io/f/mvgkvozp", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+      if (!response.ok) throw new Error("Submission failed");
       setSubmitStatus("success");
       setFormData({ name: "", email: "", message: "" });
     } catch (error) {
+      console.log(error);
       setSubmitStatus("error");
     } finally {
       setIsSubmitting(false);
-      setTimeout(() => setSubmitStatus(null), 5000);
+      setTimeout(() => setSubmitStatus(null), 3000);
     }
   };
 
