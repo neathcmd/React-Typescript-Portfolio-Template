@@ -12,9 +12,14 @@ interface ThemeContextType {
   theme: "light" | "dark";
   toggleTheme: () => void;
 }
-// LOGO
+// LOGO TEXT
 const LOGO = "Portfolio";
 
+// LOGO IMAGE URL (dark mode toggle)
+const CodeLogoUrl = (theme: "light" | "dark") =>
+  theme === "dark"
+    ? "https://cdn-icons-png.flaticon.com/512/711/711284.png"
+    : "https://cdn-icons-png.flaticon.com/512/711/711284.png";
 // Navbar
 const NAV_ITEMS: NavItem[] = [
   { label: "Home", href: "#hero" },
@@ -116,13 +121,18 @@ export default function Navbar() {
       >
         <div className="container mx-auto flex items-center justify-between px-4 sm:px-6 lg:px-8">
           {/* Logo */}
-          <div className="flex items-center">
+          <div className="flex items-center gap-2">
             <a
               href="/"
-              className="text-xl sm:text-2xl md:text-3xl font-bold"
+              className="text-xl sm:text-2xl md:text-3xl font-bold flex items-center gap-2"
               aria-label="Home"
             >
-              {LOGO}
+              <img
+                src={CodeLogoUrl(theme)}
+                alt="Code Logo"
+                className="w-6 h-6 md:w-8 md:h-8"
+              />
+              <span>{LOGO}</span>
             </a>
           </div>
 

@@ -30,13 +30,17 @@ export default function Contact() {
     setIsSubmitting(true);
 
     try {
-      const response = await fetch("https://formspree.io/f/mvgkvozp", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
-      });
+      // fatch API from formspree
+      const response = await fetch(
+        "https://<ReplaceWithYourAPIKeyFrom(Formspree)>",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(formData),
+        }
+      );
       if (!response.ok) throw new Error("Submission failed");
       setSubmitStatus("success");
       setFormData({ name: "", email: "", message: "" });

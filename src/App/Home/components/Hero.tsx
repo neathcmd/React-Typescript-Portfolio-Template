@@ -22,11 +22,6 @@ export default function HeroSection() {
   if (!themeProvider) return null;
   const { theme } = themeProvider;
 
-  // const profileImageUrl =
-  //   theme === "dark"
-  //     ? "https://res.cloudinary.com/jerrick/image/upload/d_642250b563292b35f27461a7.png,f_jpg,q_auto,w_720/67347bab768161001d967d2a.png"
-  //     : "https://res.cloudinary.com/jerrick/image/upload/d_642250b563292b35f27461a7.png,f_jpg,q_auto,w_720/67347bab768161001d967d2a.png";
-
   useEffect(() => {
     const handleTyping = () => {
       const i = loopNum % roles.length;
